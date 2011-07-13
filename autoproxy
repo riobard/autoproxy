@@ -1,11 +1,17 @@
 #!/bin/sh
-#networksetup -setsocksfirewallproxystate AirPort off
 
-echo 'Setup autoproxy.pac file'
-networksetup -setautoproxyurl PPPoE file://localhost/`pwd`/autoproxy.pac
-echo 'Turn on autoproxy on PPPoE'
-networksetup -setautoproxystate PPPoE on
-echo 'Connect to proxy server'
-ssh -D 1234 fry
-echo 'Turn off autoproxy on PPPoE'
-networksetup -setautoproxystate PPPoE off
+SCRIPT=`readlink $0` 
+SCRIPTPATH=`dirname $SCRIPT`
+PS='>>>'
+
+echo $PS Setup autoproxy.pac file
+networksetup -setautoproxyurl $1 "file://localhost/$SCRIPTPATH/autoproxy.pac"
+
+echo $PS Turn on autoproxy on $1
+networksetup -setautoproxystate $1 on
+
+echo $PS Connect to proxy server $2
+ssh -D 1234 $2
+
+echo $PS Turn off autoproxy on $1
+networksetup -setautoproxystate $1 off

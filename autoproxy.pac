@@ -1,6 +1,8 @@
 var PROXY = 'SOCKS5 127.0.0.1:1234;SOCKS 127.0.0.1:1234';
 var WHITELIST = [
-    'zhihu',
+    'zhihu.com',
+    'botime.com',
+    'zhi.hu',
     'ip138.com',
     'renren.com',
     'tudou.com',
@@ -19,7 +21,11 @@ var WHITELIST = [
     'ccb.com',
     'airchina.com.cn',
     'qunar.com',
+    'ubuntu.com.cn',
     /^https?:\/\/.*\.zhihu\.com/,
+    /^https?:\/\/.*.com.cn/,
+    /^https?:\/\/.*\.cn/,
+    /^https?:\/\/cn..*/,
 ];
 
 function FindProxyForURL(url, host) 
