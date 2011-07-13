@@ -1,11 +1,23 @@
 #!/bin/sh
 
-SCRIPT=`readlink $0` 
-SCRIPTPATH=`dirname $SCRIPT`
+
+# The following path detecting code is copied from <http://stackoverflow.com/questions/59895/can-a-bash-script-tell-what-directory-its-stored-in/179231#179231>. It is licensed under GPL 2.0. 
+SCRIPT_PATH="${BASH_SOURCE[0]}"
+if([ -h "${SCRIPT_PATH}" ]) then
+  while([ -h "${SCRIPT_PATH}" ]) do SCRIPT_PATH=`readlink "${SCRIPT_PATH}"`; done
+fi
+pushd . > /dev/null
+cd `dirname ${SCRIPT_PATH}` > /dev/null
+SCRIPT_PATH=`pwd`;
+popd  > /dev/null
+
+
+
+
 PS='>>>'
 
-echo $PS Setup autoproxy.pac file
-networksetup -setautoproxyurl $1 "file://localhost/$SCRIPTPATH/autoproxy.pac"
+echo $PS Setup autoproxy.pac file "file://localhost/$SCRIPT_PATH/autoproxy.pac"
+networksetup -setautoproxyurl $1 "file://localhost/$SCRIPT_PATH/autoproxy.pac"
 
 echo $PS Turn on autoproxy on $1
 networksetup -setautoproxystate $1 on
