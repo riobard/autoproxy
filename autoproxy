@@ -16,8 +16,8 @@ popd  > /dev/null
 
 PS='>>>'
 
-echo $PS Setup autoproxy.pac file "file://localhost/$SCRIPT_PATH/autoproxy.pac"
-networksetup -setautoproxyurl $1 "file://localhost/$SCRIPT_PATH/autoproxy.pac"
+echo $PS Setup autoproxy.pac file "file://localhost/$SCRIPT_PATH/blocked.pac"
+networksetup -setautoproxyurl $1 "file://localhost/$SCRIPT_PATH/blocked.pac"
 
 echo $PS Turn on autoproxy on $1
 networksetup -setautoproxystate $1 on
