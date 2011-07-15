@@ -23,7 +23,13 @@ echo $PS Turn on autoproxy on $1
 networksetup -setautoproxystate $1 on
 
 echo $PS Connect to proxy server $2
-ssh -D 1234 $2
+ssh -T -D 1234 $2 &
+
+PID=$!
+echo "Press [Enter] to stop autoproxy"
+read
+kill -9 $PID
+echo $PS Disconnected from proxy server $2
 
 echo $PS Turn off autoproxy on $1
 networksetup -setautoproxystate $1 off
