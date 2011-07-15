@@ -5,7 +5,8 @@ var BLOCKED = [
     'google.com',
     'gmail.com',
     'appspot.com',
-    'geoiptool.com'
+    'geoiptool.com',
+    'dropbox.com',
 ];
 
 function FindProxyForURL(url, host) 
