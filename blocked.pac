@@ -7,10 +7,17 @@ var BLOCKED = [
     'appspot.com',
     'geoiptool.com',
     'dropbox.com',
+    'cl.ly',
+    'j.mp',
+    't.co',
 ];
 
 function FindProxyForURL(url, host) 
 {
+    if (isInNet(host, '159.106.121.75', '255.255.255.0'))
+        return PROXY;
+
+
     for (var i=0, l=BLOCKED.length; i<l; i++)
     {
         var exp = BLOCKED[i];
