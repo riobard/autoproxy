@@ -11,6 +11,7 @@ var BLOCKED = [
     'cl.ly',
     't.co',
     'j.mp',
+    'python.org',
 ];
 
 function FindProxyForURL(url, host) 
