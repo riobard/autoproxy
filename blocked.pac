@@ -5,16 +5,17 @@ var BLOCKED = [
     'google.com',
     'gmail.com',
     'appspot.com',
+    'blogspot.com',
     'geoiptool.com',
     'dropbox.com',
     'cl.ly',
-    'j.mp',
     't.co',
+    'j.mp',
 ];
 
 function FindProxyForURL(url, host) 
 {
-    if (isInNet(host, '159.106.121.75', '255.255.255.0'))
+    if (isInNet(host, '159.106.121.75', '255.255.255.0'))       // Twitter
         return PROXY;
 
 
