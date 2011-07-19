@@ -1,0 +1,4 @@
+Autoproxy
+=========
+
+Automatically configure OS X to use SOCKS proxy via an SSH tunnel. 
