@@ -12,6 +12,8 @@ var BLOCKED = [
     't.co',
     'j.mp',
     'python.org',
+    'yfrog.com',
+    'dailymotion.com',
 ];
 
 function FindProxyForURL(url, host) 
