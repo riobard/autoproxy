@@ -15,6 +15,7 @@ var BLOCKED = [
     'yfrog.com',
     'dailymotion.com',
     'thepiratebay.org',
+    'googleusercontent.com',
 ];
 
 function FindProxyForURL(url, host) 
