@@ -17,6 +17,7 @@ var BLOCKED = [
     'thepiratebay.org',
     'googleusercontent.com',
     'youtube.com',
+    'img.ly',
 ];
 
 function FindProxyForURL(url, host) 
