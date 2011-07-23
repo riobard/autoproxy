@@ -18,6 +18,8 @@ var BLOCKED = [
     'googleusercontent.com',
     'youtube.com',
     'img.ly',
+    'tinypic.com',
+    'posterous.com',
 ];
 
 function FindProxyForURL(url, host) 
