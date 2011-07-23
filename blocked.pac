@@ -20,6 +20,7 @@ var BLOCKED = [
     'img.ly',
     'tinypic.com',
     'posterous.com',
+    'flickr.com',
 ];
 
 function FindProxyForURL(url, host) 
