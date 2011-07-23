@@ -21,6 +21,7 @@ var BLOCKED = [
     'tinypic.com',
     'posterous.com',
     'flickr.com',
+    'blogger.com',
 ];
 
 function FindProxyForURL(url, host) 
