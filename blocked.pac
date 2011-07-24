@@ -22,6 +22,7 @@ var BLOCKED = [
     'posterous.com',
     'flickr.com',
     'blogger.com',
+    'mashable.com',
 ];
 
 function FindProxyForURL(url, host) 
