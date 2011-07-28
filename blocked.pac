@@ -19,6 +19,12 @@ var BLOCKED = [
     'youtube.com',
     'img.ly',
     'bbc.co.uk',
+    'tinypic.com',
+    'posterous.com',
+    'flickr.com',
+    'blogger.com',
+    'mashable.com',
+    'wikipedia.org',
 ];
 
 function FindProxyForURL(url, host) 
