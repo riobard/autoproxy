@@ -18,6 +18,7 @@ var BLOCKED = [
     'googleusercontent.com',
     'youtube.com',
     'img.ly',
+    'bbc.co.uk',
 ];
 
 function FindProxyForURL(url, host) 
