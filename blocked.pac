@@ -26,6 +26,8 @@ var BLOCKED = [
     'mashable.com',
     'wikipedia.org',
     'ycombinator.com',
+    'rfa.org',
+    'bullogger.com',
 ];
 
 function FindProxyForURL(url, host) 
