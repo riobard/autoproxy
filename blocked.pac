@@ -28,6 +28,7 @@ var BLOCKED = [
     'ycombinator.com',
     'rfa.org',
     'bullogger.com',
+    'voanews.com',
 ];
 
 function FindProxyForURL(url, host) 
