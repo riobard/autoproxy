@@ -29,6 +29,7 @@ var BLOCKED = [
     'rfa.org',
     'bullogger.com',
     'voanews.com',
+    'dwelt.in',
 ];
 
 function FindProxyForURL(url, host) 
