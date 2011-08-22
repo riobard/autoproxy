@@ -1,36 +1,45 @@
-#!/bin/sh
+#!/bin/bash
 
 
 # The following path detecting code is copied from <http://stackoverflow.com/questions/59895/can-a-bash-script-tell-what-directory-its-stored-in/179231#179231>. It is licensed under GPL 2.0. 
-SCRIPT_PATH="${BASH_SOURCE[0]}"
-if([ -h "${SCRIPT_PATH}" ]) then
-  while([ -h "${SCRIPT_PATH}" ]) do SCRIPT_PATH=`readlink "${SCRIPT_PATH}"`; done
-fi
-pushd . > /dev/null
-cd `dirname ${SCRIPT_PATH}` > /dev/null
-SCRIPT_PATH=`pwd`;
-popd  > /dev/null
+function script_path
+{
+    local SCRIPT_PATH="${BASH_SOURCE[0]}"
+    if ([ -h "${SCRIPT_PATH}" ]) then
+        while([ -h "${SCRIPT_PATH}" ]) do 
+            local SCRIPT_PATH=`readlink "${SCRIPT_PATH}"`
+        done
+    fi
+    pushd . > /dev/null
+    cd `dirname ${SCRIPT_PATH}` > /dev/null
+    local SCRIPT_PATH=`pwd`
+    popd  > /dev/null
+    echo $SCRIPT_PATH
+}
 
 
 
 
-PS='>>>'
+function set_proxy
+{
+    local PS='>>>'
+    local INTERFACE=$1
+    local SSHHOST=$2
+    local SCRIPT_PATH=`script_path`
 
-echo $PS Setup autoproxy.pac file "file://localhost/$SCRIPT_PATH/autoproxy.pac"
-networksetup -setautoproxyurl $1  "file://localhost/$SCRIPT_PATH/autoproxy.pac"
+    echo $PS Setup autoproxy.pac using "file://localhost/$SCRIPT_PATH/autoproxy.pac"
+    networksetup -setautoproxyurl $INTERFACE  "file://localhost/$SCRIPT_PATH/autoproxy.pac"
 
-echo $PS Turn on autoproxy on $1
-networksetup -setautoproxystate $1 on
+    echo $PS Turn on autoproxy on $INTERFACE
+    networksetup -setautoproxystate $INTERFACE on
 
-echo $PS Connect to proxy server $2
-ssh -T -D 1234 $2
+    echo $PS Connect to proxy server $SSHHOST
+    ssh -T -D 1234 $SSHHOST
 
-#PID=$!
-#echo "Press [Enter] to stop autoproxy"
-#read
+    echo $PS Disconnected from proxy server $SSHHOST
+    echo $PS Turn off autoproxy on $INTERFACE
+    networksetup -setautoproxystate $INTERFACE off
+}
 
-#kill -9 $PID
-echo $PS Disconnected from proxy server $2
 
-echo $PS Turn off autoproxy on $1
-networksetup -setautoproxystate $1 off
+set_proxy $1 $2
