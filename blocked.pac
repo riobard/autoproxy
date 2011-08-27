@@ -30,6 +30,7 @@ var BLOCKED = [
     'bullogger.com',
     'voanews.com',
     'dwelt.in',
+    'gigaom.com',       // I have no idea why this one is blocked. 
 ];
 
 function FindProxyForURL(url, host) 
