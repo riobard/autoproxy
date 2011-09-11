@@ -1,1 +1,1 @@
-blocked.pac
+china-ip-direct.pac
