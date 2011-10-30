@@ -42,4 +42,11 @@ function set_proxy
 }
 
 
-set_proxy $1 $2
+INTERFACE=$1
+SSH_HOST=$2
+if [ $# -lt 2 ] 
+then
+    echo 'Usage: autoproxy [NIC] [SSH HOST]'
+else
+    set_proxy $INTERFACE $SSH_HOST
+fi
