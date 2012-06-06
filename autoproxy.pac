@@ -1,1 +1,1 @@
-china-ip-direct.pac
+back2china.pac
